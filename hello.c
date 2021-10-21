@@ -25,6 +25,7 @@ void table();
 void fibo();
 void prime();
 void amstrng();
+void convert();
 void main()
 {
  while(1)
@@ -76,6 +77,8 @@ void main()
   break;
   case 22:amstrng();
   break;
+  case 23:convert();
+  break;
   case 40:exit(0);
   break;
   }
@@ -107,7 +110,7 @@ int choice()
    printf("20:Fibonacci Series\n");
    printf("21:Prime Logics\n");
    printf("22:Armstrong Num\n");
-   printf("23:string\n");
+   printf("23:Coversion Of A Number\n");
    printf("40:EXIT\n");
    printf("Enter your choice:");
    scanf("%d",&ch);
@@ -694,7 +697,38 @@ void amstrng()
     }
     }
 }
-void atm()
+void convert()
 {
-
+   int  num,ch,num1,rem,bin=0,i=1;
+   printf("1:[For Binary]\n");
+   printf("2:[For Octal]\n");
+   printf("3:[For Decimal]\n");
+   printf("Enter Your Choice:");
+   scanf("%d",&ch);
+   printf("Enter Num:");
+   scanf("%d",&num);
+   num1=num;
+   switch(ch)
+   {
+   case 1:
+       while(num1)
+       {
+           rem=num1%2;
+           num1=num1/2;
+           bin=bin+(rem*i);
+           i=i*10;
+       }
+       printf("The Binary of %d is %d",num,bin);
+       break;
+   case 2:
+       while(num1)
+       {
+           rem=num1%8;
+           num1=num1/8;
+           bin=bin+(rem*i);
+           i=i*10;
+       }
+       printf("The Octal of %d is %d",num,bin);
+       break;
+   }
 }
