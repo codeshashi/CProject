@@ -25,7 +25,7 @@ void table();
 void fibo();
 void prime();
 void amstrng();
-void convert();
+void numbersystem();
 void main()
 {
  while(1)
@@ -77,7 +77,7 @@ void main()
   break;
   case 22:amstrng();
   break;
-  case 23:convert();
+  case 23:numbersystem();
   break;
   case 40:exit(0);
   break;
@@ -110,7 +110,7 @@ int choice()
    printf("20:Fibonacci Series\n");
    printf("21:Prime Logics\n");
    printf("22:Armstrong Num\n");
-   printf("23:Coversion Of A Number\n");
+   printf("23:Number System\n");
    printf("40:EXIT\n");
    printf("Enter your choice:");
    scanf("%d",&ch);
@@ -577,6 +577,7 @@ void prime()
     printf("2:[To Print All Prime Num Upto 100]\n");
     printf("3:[To Print All Prime Num In Range]\n");
     printf("4:[To Find Next Prime Num]\n");
+    printf("5:[Main-Menu]\n");
     printf("Enter Choice:");
     scanf("%d",&ch);
     switch(ch)
@@ -636,14 +637,19 @@ void prime()
            break;
          }
         }
+           break;
+    case 5: main();
             break;
+   default:
+    printf("Invalid Choice");
     }
 }
 void amstrng()
 {
     int num,rem,num1,num2,a=0,p=0,ch,i,i1;
     printf("1:[To Check Armstrong Num Or Not]\n");
-    printf("2:[To Generate Armstrong Num In a Given Range\n]");
+    printf("2:[To Generate Armstrong Num In a Given Range]\n");
+    printf("3:[Main-Menu]\n");
     printf("Enter Your Choice:");
     scanf("%d",&ch);
     switch(ch)
@@ -675,16 +681,19 @@ void amstrng()
     scanf("%d",&num);
     printf("Enter End Limit:");
     scanf("%d",&num1);
+    printf("The List Of Amstrong Num Btwn %d & %d is:\n",num,num1);
     for(i=num;i<=num1;i++)
     {
-        i=i1;
-        i=num2;
+        i1=i;
+        num2=i;
+        p=0;
     while(i1!=0)
     {
         rem=i1%10;
         i1=i1/10;
         p++;
     }
+    a=0;
     while(num2>0)
     {
         rem=num2%10;
@@ -693,21 +702,29 @@ void amstrng()
     }
     if(a==i)
        printf("%d ",i);
-
     }
+    break;
+    case 3: main();
+    break;
+    default:
+        printf("Invalid choice");
     }
 }
-void convert()
+void numbersystem()
 {
    int  num,ch,num1,rem,bin=0,i=1;
    printf("1:[For Binary]\n");
    printf("2:[For Octal]\n");
    printf("3:[For Decimal]\n");
+   printf("4:[Main-Menu]\n");
    printf("Enter Your Choice:");
    scanf("%d",&ch);
+   if(ch==1 || ch==2)
+   {
    printf("Enter Num:");
    scanf("%d",&num);
    num1=num;
+   }
    switch(ch)
    {
    case 1:
@@ -730,5 +747,23 @@ void convert()
        }
        printf("The Octal of %d is %d",num,bin);
        break;
+   case 3:
+    printf("Enter a Binary Num:");
+    scanf("%d",&num);
+    num1=num;
+    i=0;
+    while(num)
+    {
+        rem=num%10;
+        bin=bin+pow(2,i)*rem;
+        i++;
+        num=num/10;
+    }
+    printf("%d Decimal Equavalent is %d",num1,bin);
+       break;
+   case 4: main();
+       break;
+   default:
+    printf("Invalid Choice");
    }
 }
